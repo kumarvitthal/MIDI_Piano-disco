@@ -46,9 +46,14 @@ void readmidi(){
       ControllerValue = Serial.read(); 
       //check if the message is a cc midi message
       if (statusByte==ccmidi){
-        Serial.print(statusByte);
-        Serial.print(ControllerNumber);
-        Serial.print(ControllerValue);
+        digitalWrite(LED_BUILTIN, HIGH);
+        delay(100);
+        digitalWrite(LED_BUILTIN, LOW);
+        delay(100);
+        //Serial monitor wont work when you open the COM port of Arduino in hairless midi
+//         Serial.print(statusByte);
+//         Serial.print(ControllerNumber);
+//         Serial.print(ControllerValue);
         //controll the leds acording to the data bytes
         if(ControllerNumber>=21 && ControllerNumber<=24) analogWrite(rled,ControllerValue*2);
         if(ControllerNumber>=25 && ControllerNumber<=28) analogWrite(gled,ControllerValue*2);
