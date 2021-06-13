@@ -28,12 +28,12 @@ void loop(){
     velocity = MIDI.getData2();
     
     digitalWrite(LED_BUILTIN, HIGH);
-    delay(500);
+    delay(100);
     digitalWrite(LED_BUILTIN, LOW);
-    delay(500);
+    delay(100);
     //controll the leds acording to the data bytes
-    analogWrite(bled,note*3-35);delay(100); analogWrite(bled,0);
-    if(ntype == 0x90){ analogWrite(rled,velocity*2);delay(100); analogWrite(rled, 0);} // NoteOn is 0x90 
-    if(ntype == 0x80){ analogWrite(gled,velocity);delay(100); analogWrite(gled, 0);} // NoteOff is 0x80
+    analogWrite(bled,note*3-35);delay(50); analogWrite(bled,0);
+    if(ntype == 0x90){ analogWrite(rled,velocity*2);delay(50); analogWrite(rled, 0);} // NoteOn is 0x90 
+    if(ntype == 0x80){ analogWrite(gled,velocity);delay(50); analogWrite(gled, 0);} // NoteOff is 0x80
   }
 }
