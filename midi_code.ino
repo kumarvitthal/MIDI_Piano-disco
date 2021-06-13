@@ -1,7 +1,7 @@
 #include<MIDI.h>
-int rled = 2;
-int gled = 3;
-int bled = 4;
+int rled = 9;
+int gled = 10;
+int bled = 11;
 //cc midi messages three bytes
 byte statusByte;
 byte ControllerNumber;
@@ -15,17 +15,14 @@ void setup(){
   pinMode(gled,OUTPUT);
   pinMode(bled,OUTPUT);
   //test the leds
-  for(int i=0;i<255;i++){
-    for(int j=0;j<255;j++){
-      for(int k=0;k<255;k++){
-        analogWrite(bled,k);
-        delay(1);
-      }
-      analogWrite(gled,j);
-      delay(1);
-    }
+  for(int i=0;i<255;i+=15){
     analogWrite(rled,i);
-    delay(1);
+    for(int j=0;j<255;j+=5){
+      analogWrite(gled,j);
+      for(int k=0;k<255;k+=1){
+        analogWrite(bled,k);
+      }
+    }
   }
   MIDI_CREATE_DEFAULT_INSTANCE();
   MIDI.begin(1);
