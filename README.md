@@ -11,4 +11,4 @@ Use a midi-USB cable to connect your Keyboard to the PC. Download "hairless midi
 
 **Circuit**\
 In the circuit, we use three n-channel MOSFETs, resistors, DC 12V supply. 
-The gate of the MOSFETs is connected to PWM pins of the arduino in order to control the brightness. The drain of the MOSFETs is connected to R,G,B pins of the LED strip. The source of the MOSFETs is connected to 12V DC. The common pin of the LED is then connected to the ground. 
+The gate of the MOSFETs is connected to PWM pins of the arduino in order to control the brightness. The drain of the MOSFETs is connected to R,G,B pins of the LED strip. The source of the MOSFETs is connected to the ground. The common anode pin of the LED is then connected to the 12V DC. 
